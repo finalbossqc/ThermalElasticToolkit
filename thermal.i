@@ -85,6 +85,14 @@
                 variable = sigxx
         []
 
+        [Dsigxx]
+                type = ModDiv
+                variable = sigxx
+                vx = u
+                vy = v
+                vz = w
+        []
+
         [sigxyt]
                 type = TimeDerivative
                 variable = sigxy
@@ -100,6 +108,14 @@
                 variable = sigyy
         []
 
+        [Dsigyy]
+                type = ModDiv
+                variable = sigyy
+                vx = u
+                vy = v
+                vz = w
+        []
+
         [sigyzt]
                 type = TimeDerivative
                 variable = sigyz
@@ -108,6 +124,14 @@
         [sigzzt]
                 type = TimeDerivative
                 variable = sigzz
+        []
+
+        [Dsigzz]
+                type = ModDiv
+                variable = sigzz
+                vx = u
+                vy = v
+                vz = w
         []
 []
 
