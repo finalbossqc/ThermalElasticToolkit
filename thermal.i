@@ -113,21 +113,21 @@
 
 [BCs]
         [ubc]
-                type = OutflowBC
+                type = DirichletBC
                 variable = u
                 value = 0
                 boundary = '0 1 2 3 4 5'
         []
 
         [vbc]
-                type = OutflowBC
+                type = DirichletBC
                 variable = v
                 value = 0
                 boundary = '0 1 2 3 4 5'
         []
 
         [wbc]
-                type = OutflowBC
+                type = DirichletBC
                 variable = w
                 value = 0
                 boundary = '0 1 2 3 4 5'

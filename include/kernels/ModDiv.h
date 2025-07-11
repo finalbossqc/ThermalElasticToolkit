@@ -11,5 +11,7 @@ class ModDiv : public Kernel {
 		virtual Real computeQpResidual() override;	
 	
 	private:
-		VariableGradient _grad_velocity_comp;
+		const VariableGradient & _grad_vx;
+		const VariableGradient & _grad_vy;
+		const VariableGradient & _grad_vz;
 };
