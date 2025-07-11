@@ -14,4 +14,6 @@ class ModDiv : public Kernel {
 		const VariableGradient & _grad_vx;
 		const VariableGradient & _grad_vy;
 		const VariableGradient & _grad_vz;
+		const MaterialProperty<Real> & _mu;
+		const MaterialProperty<Real> & _lambda;
 };

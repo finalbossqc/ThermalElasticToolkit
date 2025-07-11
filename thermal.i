@@ -158,6 +158,16 @@
         []
 []
 
+[Materials]
+        [main]
+                type = BioMaterial
+                block = 0
+                density = 1
+                mu = 1
+                lambda = 1
+        []
+[]
+
 [Executioner]
         type = Transient
         dt = 0.01

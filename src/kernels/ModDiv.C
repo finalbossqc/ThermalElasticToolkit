@@ -13,7 +13,9 @@ InputParameters ModDiv::validParams() {
 ModDiv::ModDiv(const InputParameters &parameters): Kernel(parameters),
 	_grad_vx(coupledGradient("vx")),
 	_grad_vy(coupledGradient("vy")),
-	_grad_vz(coupledGradient("vz"))
+	_grad_vz(coupledGradient("vz")),
+	_mu(getMaterialProperty<Real>("mu")),
+	_lambda(getMaterialProperty<Real>("lambda"))
 {}
 
 Real ModDiv::computeQpResidual() {
