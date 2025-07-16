@@ -86,7 +86,7 @@
         []
 
         [Dsigxx]
-                type = ModDiv
+                type = LambdaTerm
                 variable = sigxx
                 vx = u
                 vy = v
@@ -98,9 +98,25 @@
                 variable = sigxy
         []
 
+        [Msigxy]
+                type = MuTerm
+                variable = sigxy
+                vx = v
+                vy = u
+                vz = 0
+        []
+
         [sigxzt]
                 type = TimeDerivative
                 variable = sigxz
+        []
+
+        [Msigxz]
+                type = MuTerm
+                variable = sigxz
+                vx = w
+                vy = 0
+                vz = u
         []
 
         [sigyyt]
@@ -109,7 +125,7 @@
         []
 
         [Dsigyy]
-                type = ModDiv
+                type = LambdaTerm
                 variable = sigyy
                 vx = u
                 vy = v
@@ -121,13 +137,21 @@
                 variable = sigyz
         []
 
+        [Msigyz]
+                type = MuTerm
+                variable = sigyz
+                vx = 0
+                vy = w
+                vz = v
+        []
+
         [sigzzt]
                 type = TimeDerivative
                 variable = sigzz
         []
 
         [Dsigzz]
-                type = ModDiv
+                type = LambdaTerm
                 variable = sigzz
                 vx = u
                 vy = v

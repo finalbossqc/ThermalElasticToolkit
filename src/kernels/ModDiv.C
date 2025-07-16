@@ -19,5 +19,5 @@ ModDiv::ModDiv(const InputParameters &parameters): Kernel(parameters),
 {}
 
 Real ModDiv::computeQpResidual() {
-	return _grad_vx[_qp](0) * _test[_i][_qp] + _grad_vy[_qp](1) * _test[_i][_qp] + _grad_vz[_qp](2) * _test[_i][_qp];
+	return -_lambda[_qp] * ( _grad_vx[_qp](0) + _grad_vy[_qp](1) + _grad_vz[_qp](2) ) * _test[_i][_qp];
 }
