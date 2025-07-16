@@ -17,4 +17,5 @@ class MuTerm : public ModDiv {
 		const VariableGradient & _grad_vz;
 		const MaterialProperty<Real> & _mu;
 		const MaterialProperty<Real> & _lambda;
+		RealVectorValue _alpha;
 };

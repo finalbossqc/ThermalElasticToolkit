@@ -70,14 +70,38 @@
                 variable = u
         []
 
+        [Ru]
+                type = RhoTerm
+                variable = u
+                sigix = sigxx
+                sigiy = sigxy
+                sigiz = sigxz
+        []
+
         [vt]
                 type = TimeDerivative
                 variable = v
         []
 
+        [Rv]
+                type = RhoTerm
+                variable = v
+                sigix = sigxy
+                sigiy = sigyy
+                sigiz = sigyz
+        []
+
         [wt]
                 type = TimeDerivative
                 variable = w
+        []
+
+        [Rw]
+                type = RhoTerm
+                variable = w
+                sigix = sigxz
+                sigiy = sigyz
+                sigiz = sigzz
         []
 
         [sigxxt]
@@ -93,6 +117,15 @@
                 vz = w
         []
 
+        [Msigxx]
+                type = MuTerm
+                variable = sigxx
+                vx = u
+                vy = 0
+                vz = 0
+                alpha = '2 0 0'
+        []
+
         [sigxyt]
                 type = TimeDerivative
                 variable = sigxy
@@ -104,6 +137,7 @@
                 vx = v
                 vy = u
                 vz = 0
+                alpha = '1 1 1'
         []
 
         [sigxzt]
@@ -117,6 +151,7 @@
                 vx = w
                 vy = 0
                 vz = u
+                alpha = '1 1 1'
         []
 
         [sigyyt]
@@ -132,6 +167,15 @@
                 vz = w
         []
 
+        [Msigyy]
+                type = MuTerm
+                variable = sigyy
+                vx = 0
+                vy = v
+                vz = 0
+                alpha = '0 2 0'
+        []
+
         [sigyzt]
                 type = TimeDerivative
                 variable = sigyz
@@ -143,6 +187,7 @@
                 vx = 0
                 vy = w
                 vz = v
+                alpha = '1 1 1'
         []
 
         [sigzzt]
@@ -156,6 +201,15 @@
                 vx = u
                 vy = v
                 vz = w
+        []
+
+        [Msigzz]
+                type = MuTerm
+                variable = sigzz
+                vx = 0
+                vy = 0
+                vz = w
+                alpha = '0 0 2'
         []
 []
 
