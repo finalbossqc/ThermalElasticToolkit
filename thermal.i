@@ -126,6 +126,13 @@
                 alpha = '2 0 0'
         []
 
+        [Qxx]
+                type = BodyForce
+                variable = sigxx
+                value = -1
+                function = 'sin(x)'
+        []
+
         [sigxyt]
                 type = TimeDerivative
                 variable = sigxy
@@ -176,6 +183,13 @@
                 alpha = '0 2 0'
         []
 
+        [Qyy]
+                type = BodyForce
+                variable = sigyy
+                value = -1
+                function = 'sin(x)'
+        []
+
         [sigyzt]
                 type = TimeDerivative
                 variable = sigyz
@@ -211,28 +225,12 @@
                 vz = w
                 alpha = '0 0 2'
         []
-[]
 
-[BCs]
-        [ubc]
-                type = DirichletBC
-                variable = u
-                value = 0
-                boundary = '0 1 2 3 4 5'
-        []
-
-        [vbc]
-                type = DirichletBC
-                variable = v
-                value = 0
-                boundary = '0 1 2 3 4 5'
-        []
-
-        [wbc]
-                type = DirichletBC
-                variable = w
-                value = 0
-                boundary = '0 1 2 3 4 5'
+        [Qzz]
+                type = BodyForce
+                variable = sigzz
+                value = -1
+                function = 'sin(x)'
         []
 []
 
@@ -240,17 +238,24 @@
         [main]
                 type = BioMaterial
                 block = 0
-                density = 1
+                density = 1000
                 mu = 1
                 lambda = 1
+                alpha = 1
         []
 []
 
 [Executioner]
         type = Transient
-        dt = 0.01
-        end_time = 1
+        end_time = 1e-8
         scheme = 'bdf2'
+        solver_type = PJFNK
+        automatic_scaling = True                
+
+        [TimeStepper]
+                type = IterationAdaptiveDT
+                dt = 1e-12
+        []
 []
 
 [Outputs]
