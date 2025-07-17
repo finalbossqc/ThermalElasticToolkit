@@ -1,4 +1,6 @@
+#pragma once
 #include "RhoTerm.h"
+#include <algorithm>
 
 registerMooseObject("ThermalApp", RhoTerm);
 
@@ -18,5 +20,6 @@ RhoTerm::RhoTerm(const InputParameters &parameters): Kernel(parameters),
 {}
 
 Real RhoTerm::computeQpResidual() {
-	return -_rho[_qp] * ( _grad_sigix[_qp](0) + _grad_sigiy[_qp](1) + _grad_sigiz[_qp](2) ) * _test[_i][_qp];
+	Real rhodensity = std::max(_rho[_qp], 1e-6);
+	return ( -1.0 / rhodensity ) * ( _grad_sigix[_qp](0) + _grad_sigiy[_qp](1) + _grad_sigiz[_qp](2) ) * _test[_i][_qp];
 }

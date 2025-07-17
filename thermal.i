@@ -126,6 +126,13 @@
                 alpha = '2 0 0'
         []
 
+        [Qxx]
+                type = MatBodyForce
+                variable = sigxx
+                material_property = Qs 
+                postprocessor = -1
+        []        
+
         [sigxyt]
                 type = TimeDerivative
                 variable = sigxy
@@ -176,6 +183,13 @@
                 alpha = '0 2 0'
         []
 
+        [Qyy]
+                type = MatBodyForce
+                variable = sigyy
+                material_property = Qs
+                postprocessor = -1
+        []
+
         [sigyzt]
                 type = TimeDerivative
                 variable = sigyz
@@ -211,28 +225,13 @@
                 vz = w
                 alpha = '0 0 2'
         []
-[]
 
-[BCs]
-        [ubc]
-                type = DirichletBC
-                variable = u
-                value = 0
-                boundary = '0 1 2 3 4 5'
-        []
-
-        [vbc]
-                type = DirichletBC
-                variable = v
-                value = 0
-                boundary = '0 1 2 3 4 5'
-        []
-
-        [wbc]
-                type = DirichletBC
-                variable = w
-                value = 0
-                boundary = '0 1 2 3 4 5'
+        [Qzz]
+                type = MatBodyForce
+                variable = sigzz
+                material_property = Qs
+                postprocessor = -1
+                function = 'x^2'
         []
 []
 
@@ -243,6 +242,7 @@
                 density = 1
                 mu = 1
                 lambda = 1
+                alpha = 1
         []
 []
 
