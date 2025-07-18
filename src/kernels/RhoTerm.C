@@ -14,9 +14,9 @@ RhoTerm::RhoTerm(const InputParameters &parameters): Kernel(parameters),
 	_grad_sigix(coupledGradient("sigix")),
 	_grad_sigiy(coupledGradient("sigiy")),
 	_grad_sigiz(coupledGradient("sigiz")),
-	_invrho(getMaterialProperty<Real>("invdensity"))
+	_rho(getMaterialProperty<Real>("rho"))
 {}
 
 Real RhoTerm::computeQpResidual() {
-	return - _invrho[_qp] * ( _grad_sigix[_qp](0) + _grad_sigiy[_qp](1) + _grad_sigiz[_qp](2) ) * _test[_i][_qp];
+	return - ( 1 / _rho[_qp] ) * ( _grad_sigix[_qp](0) + _grad_sigiy[_qp](1) + _grad_sigiz[_qp](2) ) * _test[_i][_qp];
 }

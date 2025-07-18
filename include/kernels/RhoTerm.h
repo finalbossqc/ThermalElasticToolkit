@@ -14,5 +14,5 @@ class RhoTerm : public Kernel {
 		const VariableGradient & _grad_sigix;
 		const VariableGradient & _grad_sigiy;
 		const VariableGradient & _grad_sigiz;
-		const MaterialProperty<Real> & _invrho;
+		const MaterialProperty<Real> & _rho;
 };

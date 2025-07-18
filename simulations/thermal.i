@@ -1,9 +1,9 @@
 [Mesh]
         [mesh]
                 type = GeneratedMeshGenerator
-                nx = 10
-                ny = 10
-                nz = 10
+                nx = 30
+                ny = 30
+                nz = 30
                 dim = 3
         []
 []
@@ -126,11 +126,10 @@
                 alpha = '2 0 0'
         []
 
-        [Qxx]
-                type = BodyForce
+        [SARxx]
+                type = SAR
                 variable = sigxx
-                value = -1
-                function = 'sin(x)'
+                func = 'sin(x)*sin(y)*sin(z)'
         []
 
         [sigxyt]
@@ -183,11 +182,10 @@
                 alpha = '0 2 0'
         []
 
-        [Qyy]
-                type = BodyForce
+        [SARyy]
+                type = SAR
                 variable = sigyy
-                value = -1
-                function = 'sin(x)'
+                func = 'sin(x)*sin(y)*sin(z)'
         []
 
         [sigyzt]
@@ -226,34 +224,52 @@
                 alpha = '0 0 2'
         []
 
-        [Qzz]
-                type = BodyForce
+        [SARzz]
+                type = SAR
                 variable = sigzz
-                value = -1
-                function = 'sin(x)'
+                func = 'sin(x)*sin(y)*sin(z)'
         []
 []
 
 [Materials]
-        [main]
-                type = BioMaterial
+        [LameConstantMu]
+                type = ParsedMaterial
                 block = 0
-                density = 1000
-                mu = 1
-                lambda = 1
-                alpha = 1
+                property_name = mu
+                expression = '1'
+        []
+
+        [LameConstantLambda]
+                type = ParsedMaterial
+                block = 0
+                property_name = lambda
+                expression = '1'
+        []
+
+        [Density]
+                type = ParsedMaterial
+                block = 0
+                property_name = rho
+                expression = '1'
+        []
+
+        [ThermalExpansion]
+                type = ParsedMaterial
+                block = 0
+                property_name = alpha
+                expression = '1'
         []
 []
 
 [Executioner]
         type = Transient
-        end_time = 1e-8
+        end_time = 1e-10
         scheme = 'bdf2'
         solver_type = PJFNK
         automatic_scaling = True                
 
         [TimeStepper]
-                type = IterationAdaptiveDT
+                type = ConstantDT
                 dt = 1e-12
         []
 []
