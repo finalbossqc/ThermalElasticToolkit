@@ -18,5 +18,5 @@ SAR::SAR(const InputParameters &parameters): Kernel(parameters),
 {}
 
 Real SAR::computeQpResidual() {
-	return _alpha[_ap] * ( 3 * _lambda[_qp] + 2 * _mu[_qp] ) * _function.value(_t, _q_point[_qp]) * _test[_i][_qp];
+	return _alpha[_qp] * ( 3 * _lambda[_qp] + 2 * _mu[_qp] ) * _function.value(_t, _q_point[_qp]) * _test[_i][_qp];
 }
