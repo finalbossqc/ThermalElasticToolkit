@@ -67,6 +67,13 @@
         []
 []
 
+[Functions]
+        [SarInterpolate]
+                type = PiecewiseMultilinear
+                data_file = "sar.txt"
+        []
+[]
+
 [Kernels]
         [ut]
                 type = TimeDerivative
@@ -132,7 +139,7 @@
         [SARxx]
                 type = SAR
                 variable = sigxx
-                func = '1'
+                func = SarInterpolate
         []
 
         [sigxyt]
@@ -188,7 +195,7 @@
         [SARyy]
                 type = SAR
                 variable = sigyy
-                func = '1'
+                func = SarInterpolate
         []
 
         [sigyzt]
@@ -230,14 +237,7 @@
         [SARzz]
                 type = SAR
                 variable = sigzz
-                func = '1'
-        []
-[]
-
-[Functions]
-        [SarInterpolate]
-                type = PiecewiseMultilinear
-                data_file = 'test.txt'
+                func = SarInterpolate
         []
 []
 
