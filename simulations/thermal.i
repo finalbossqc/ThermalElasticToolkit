@@ -1,9 +1,12 @@
 [Mesh]
         [mesh]
                 type = GeneratedMeshGenerator
-                nx = 30
-                ny = 30
-                nz = 30
+                nx = 161
+                ny = 92
+                nz = 100
+                xmax = 480
+                ymax = 280
+                zmax = 300
                 dim = 3
         []
 []
@@ -129,7 +132,7 @@
         [SARxx]
                 type = SAR
                 variable = sigxx
-                func = 'sin(x)*sin(y)*sin(z)'
+                func = '1'
         []
 
         [sigxyt]
@@ -185,7 +188,7 @@
         [SARyy]
                 type = SAR
                 variable = sigyy
-                func = 'sin(x)*sin(y)*sin(z)'
+                func = '1'
         []
 
         [sigyzt]
@@ -227,7 +230,14 @@
         [SARzz]
                 type = SAR
                 variable = sigzz
-                func = 'sin(x)*sin(y)*sin(z)'
+                func = '1'
+        []
+[]
+
+[Functions]
+        [SarInterpolate]
+                type = PiecewiseMultilinear
+                data_file = 'test.txt'
         []
 []
 
