@@ -8,10 +8,9 @@ class SAR : public Kernel {
 		static InputParameters validParams();
 
 	protected:
-		virtual Real computeQpResidual() override;	
-		const Function & _function;
-        
+		virtual Real computeQpResidual() override;	    
+		const MaterialProperty<Real> & _mu;
 		const MaterialProperty<Real> & _lambda;
-        const MaterialProperty<Real> & _mu;
 		const MaterialProperty<Real> & _alpha;
+		const Function & _function;
 };

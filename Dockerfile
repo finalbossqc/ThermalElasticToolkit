@@ -17,7 +17,5 @@ RUN pip3 install --no-cache-dir \
     matplotlib \
     scipy
 
-RUN git clone https://github.com/finalbossqc/moose.git /home/moose
-
 # Set the default command to bash
 CMD ["/bin/bash"]

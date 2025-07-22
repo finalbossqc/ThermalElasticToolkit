@@ -1,9 +1,9 @@
 [Mesh]
         [mesh]
                 type = GeneratedMeshGenerator
-                nx = 161
-                ny = 92
-                nz = 100
+                nx = 50
+                ny = 50
+                nz = 50
                 xmax = 480
                 ymax = 280
                 zmax = 300
@@ -273,12 +273,14 @@
 
 [Executioner]
         type = Transient
-        end_time = 1e-10
-        scheme = 'bdf2'
-        automatic_scaling = true
-        petsc_options_iname = '-pc_type -pc_hypre_type'
-        petsc_options_value = 'hypre boomeramg'             
 
+        end_time = 1e-10
+        num_steps = 10
+        automatic_scaling = true
+        use_pre_SMO_residual = true
+        nl_rel_tol = 1e-3
+        l_rel_tol = 1e-5 
+        
         [TimeStepper]
                 type = ConstantDT
                 dt = 1e-12

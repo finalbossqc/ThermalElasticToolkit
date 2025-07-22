@@ -1,6 +1,5 @@
 #include "SAR.h"
 #include "Function.h"
-#include <iostream>
 
 registerMooseObject("ThermalApp", SAR);
 
