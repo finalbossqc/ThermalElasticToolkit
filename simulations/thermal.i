@@ -275,8 +275,9 @@
         type = Transient
         end_time = 1e-10
         scheme = 'bdf2'
-        solver_type = PJFNK
-        automatic_scaling = True                
+        automatic_scaling = true
+        petsc_options_iname = '-pc_type -pc_hypre_type'
+        petsc_options_value = 'hypre boomeramg'             
 
         [TimeStepper]
                 type = ConstantDT
